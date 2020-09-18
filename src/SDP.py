@@ -15,4 +15,24 @@ C = ([
 ])
 
 A = []
-A.append(np.)
+A.append(np.array([[1, 0, 1], [0, 3, 7], [1, 7, 5]]))
+A.append(np.array([[0, 2, 8], [2, 6, 0], [8, 0, 4]]))
+
+b = []
+b.append(11)
+b.append(19)
+
+X = cp.Variable((n,n), symmetric=True)
+
+obj = cp.Minimize(cp.trace(C@X))
+cons = []
+cons = [X >> 0]
+cons += [cp.trace(A[i]@X) == b[i] for i in range(p)]
+
+prob = cp.Problem(obj, cons)
+prob.solve()
+
+
+print("optimal value is ", prob.value)
+print("A solution X is")
+print(X.value)
