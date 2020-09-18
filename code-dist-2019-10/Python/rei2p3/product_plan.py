@@ -1,5 +1,5 @@
 import cvxpy as cp  #まずはモジュールの読み込み
-x1, x2 = cp.Variable(), cp.Variable()  #決定変数を定義
+x1, x2 = cp.Variable(), cp.Variable() 
 obj  = cp.Maximize( 20*x1 + 60*x2 )  #目的関数を記述
 cons = [5*x1 + 4*x2 <= 80,
         2*x1 + 4*x2 <= 40,
